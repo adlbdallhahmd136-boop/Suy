@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نبذة عن مركز سيبويه</title>
+
+<!-- الخط -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Cairo', sans-serif;
+    background: #f0f0f0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* الصورة الخلفية */
+.uuu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.25;
+}
+
+/* المحتوى */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 30px 60px 30px;
+}
+
+/* العناوين */
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2E2E2E;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* الفقرات */
+p {
+    font-size: 18px;
+    line-height: 2;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* تأثير ظهور عند السكول */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* زر العودة */
+.back-btn {
+    display: inline-block;
+    margin: 30px auto 0 auto;
+    padding: 12px 30px;
+    background-color: #38D664;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #2ab04d;
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<img class="uuu" src="https://i.top4top.io/p_3610xz4ij0.jpg" alt="" />
+
+<div class="container">
+    <h1 class="fade-in">نبذة عن مركز سيبويه</h1>
+
+    <p class="fade-in">
+        مركز سيبويه لتعليم القرآن الكريم وعلومه هو صرح علمي رائد في مجال تعليم القرآن الكريم واللغة العربية، ويُعد من أبرز المراكز المتخصصة في تأصيل العلوم الشرعية واللغوية للطلاب من مختلف الأعمار والمستويات. تأسس المركز بهدف الجمع بين الأصالة العلمية والتطوير العصري، ليقدم تجربة تعليمية شاملة تجمع بين الحفظ الدقيق للقرآن الكريم، وفهم علومه المختلفة، مع تعزيز اللغة العربية وقواعدها بأسلوب مبسط ومتميز.
+    </p>
+
+    <p class="fade-in">
+        على مدار أكثر من ستة وعشرين عامًا من العطاء، أصبح مركز سيبويه نموذجًا يحتذى به في تطوير المهارات القرآنية واللغوية للطلاب، مع الالتزام بأعلى معايير الجودة التعليمية والمنهجية العلمية المتقدمة.
+    </p>
+
+    <h2 class="fade-in">رسالة المركز</h2>
+    <p class="fade-in">
+        رسالة مركز سيبويه ترتكز على بناء جيل متقن لعلوم القرآن الكريم، قادر على فهم وتطبيق أحكام الدين بشكل صحيح، ومتمكن من اللغة العربية وعلومها. المركز يسعى إلى تمكين الطلاب من إتقان القراءة الصحيحة، وحفظ القرآن الكريم بطرق علمية حديثة، مع مراعاة الضوابط التجويدية والإعرابية والتفسيرية.
+    </p>
+
+    <h2 class="fade-in">أهداف المركز</h2>
+    <p class="fade-in">
+        1. إتقان الحفظ والتجويد. <br>
+        2. تعليم علوم القرآن. <br>
+        3. تعليم اللغة العربية. <br>
+        4. تطوير الشخصية والقيم الأخلاقية. <br>
+        5. التأهيل الأكاديمي المتخصص.
+    </p>
+
+    <h2 class="fade-in">البيئة التعليمية</h2>
+    <p class="fade-in">
+        يقدم المركز بيئة تعليمية محفزة تجمع بين الأصالة والتجديد، مع فصول مجهزة بأحدث الأدوات التعليمية، مدرّسون متخصصون، متابعة مستمرة للطلاب، وأنشطة تربوية ممتعة لتطوير مهارات الطلاب الروحية والأكاديمية.
+    </p>
+
+    <a href="index.html" class="back-btn fade-in">العودة للصفحة الرئيسية</a>
+</div>
+
+<script>
+// ظهور العناصر عند السكول
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0.1
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+</script>
+
+</body>
+</html>

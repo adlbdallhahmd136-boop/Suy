@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اقرأ أكثر عن الدكتور عادل عبدالله عبد الشكور</title>
+<!-- خط عربي جميل وسميك -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<style>
+    /* خلفية الصفحة */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        color: #fff;
+        background: url('https://i.top4top.io/p_3610xz4ij0.jpg') no-repeat center center fixed;
+        background-size: cover;
+        overflow-x: hidden;
+    }
+
+    /* طبقة للتظليل */
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 50px 20px;
+        min-height: 100vh;
+    }
+
+    /* مركزية المحتوى */
+    .section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2, h3 {
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-top: 40px;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        text-align: justify;
+        line-height: 1.8;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease;
+    }
+
+    .highlight {
+        font-weight: 900;
+        color: #ffd700;
+    }
+
+    /* تأثير fade-in عند التمرير */
+    .show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    @media (max-width: 768px) {
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 1.8em; }
+        p { font-size: 1em; }
+        .overlay { padding: 30px 15px; }
+    }
+</style>
+</head>
+<body>
+<div class="overlay">
+    <div class="section">
+        <h1>اقرأ أكثر عن الدكتور عادل عبدالله عبد الشكور</h1>
+
+        <h2>مسيرة علمية تمتد لسنوات طويلة</h2>
+        <p>يُعدّ <span class="highlight">الدكتور عادل عبدالله عبد الشكور</span> واحدًا من أبرز الشخصيات في ميدان اللغة العربية وتعليم القرآن الكريم وعلومه، بخبرة تمتد لأكثر من <span class="highlight">ثلاثة عقود</span> من العطاء. في عمر الخمسين، يحمل على عاتقه رسالة العلم والتربية كما لم يحملها غيره.</p>
+
+        <h2>خبرة مهنية واسعة وشهادات رسمية</h2>
+        <p>حصل الدكتور على <span class="highlight">درجة "أ" – وكيل وزارة</span> اعترافًا رسميًا من الدولة بكفاءة أدائه وخبرته الطويلة. كما نال <span class="highlight">تكريمات متعددة من وزارة الأوقاف</span> تقديرًا لجهوده في خدمة القرآن الكريم وتعليم الناس علومه، ونتيجة سنوات من الإشراف على برامج تعليمية مؤثرة وتخريج دفعات كبيرة من الطلاب والمعلمين.</p>
+
+        <h2>أسلوب تدريسي لا يُشبه أحدًا</h2>
+        <p>يمتاز الدكتور عادل بأسلوب تدريسي فريد يجمع بين <span class="highlight">الحزم والانضباط</span> و<span class="highlight">الحكمة واللين</span>، ويستطيع تبسيط أعقد القواعد اللغوية وتقديم علوم القرآن بأسلوب ممتع وواضح. طلابه يصفونه بأنه <span class="highlight">المعلم الذي لا يُعوَّض</span>.</p>
+
+        <h2>رسالة سامية يؤمن بها</h2>
+        <p>يؤمن الدكتور عادل أن تعليم القرآن واللغة العربية ليس وظيفة، بل <span class="highlight">رسالة عظيمة</span> يحملها الإنسان أمام الله وأمام الناس. لذلك يعمل بلا كلل، ويولي اهتمامًا كبيرًا بكل طالب، مبتدئًا كان أو متمكنًا.</p>
+
+        <h2>مكانته اليوم</h2>
+        <p>بعد خمسين عامًا من العمر المليء بالعلم والخبرة، أصبح الدكتور عادل مرجعًا موثوقًا في اللغة العربية وعلوم القرآن، وشخصية تعليمية ذات أثر حقيقي، واسمًا يحمله الناس بكل احترام وتقدير.</p>
+    </div>
+</div>
+
+<script>
+    // كود لإظهار النصوص عند التمرير
+    const paragraphs = document.querySelectorAll('p');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    paragraphs.forEach(p => observer.observe(p));
+</script>
+</body>
+</html>
