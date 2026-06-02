@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>مركز سيبويه · دخول الطلاب</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- خط عربي سميك وجميل: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+    }
+
+    body {
+      background: #f5f9ff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    /* ----- LOADER ----- */
+    .loader-screen {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #0a1e2f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.4s;
+    }
+    .loader-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .spinner {
+      width: 64px;
+      height: 64px;
+      border: 6px solid rgba(255,255,255,0.15);
+      border-top: 6px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .loader-text {
+      margin-top: 24px;
+      color: #d9e9ff;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    /* ----- LOGIN ----- */
+    .login-view {
+      max-width: 440px;
+      width: 100%;
+      background: white;
+      border-radius: 36px;
+      box-shadow: 0 30px 50px rgba(0, 20, 40, 0.08);
+      padding: 40px 32px;
+      transition: 0.2s;
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .login-header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0b2b4a;
+    }
+    .login-header p {
+      color: #5f6c80;
+      margin-top: 6px;
+    }
+    .input-group {
+      margin-bottom: 22px;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid #e0e7ef;
+      border-radius: 24px;
+      font-size: 1rem;
+      background: #fafcff;
+      transition: 0.15s;
+    }
+    .input-group input:focus {
+      outline: none;
+      border-color: #1e5aa8;
+      box-shadow: 0 0 0 4px rgba(30,90,168,0.08);
+    }
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: #0b2b4a;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .login-btn:hover {
+      background: #1a4a75;
+    }
+    .error-msg {
+      color: #d32f2f;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.9rem;
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<!-- LOADER SCREEN -->
+<div class="loader-screen" id="loaderScreen">
+  <div class="spinner"></div>
+  <div class="loader-text">مركز سيبويه</div>
+</div>
+
+<!-- LOGIN VIEW -->
+<div id="loginView" class="login-view hidden">
+  <div class="login-header">
+    <h2>مرحباً بك</h2>
+    <p>مركز سيبويه · بوابة الطلاب</p>
+  </div>
+  <form id="loginForm">
+    <div class="input-group">
+      <label>اسم المستخدم</label>
+      <input type="text" id="loginUsername" autocomplete="off" required>
+    </div>
+    <div class="input-group">
+      <label>كلمة المرور</label>
+      <input type="password" id="loginPassword" required>
+    </div>
+    <button type="submit" class="login-btn">تسجيل الدخول</button>
+    <div id="loginError" class="error-msg"></div>
+  </form>
+</div>
+
+<script>
+  (function() {
+    "use strict";
+
+    // قاعدة بيانات الطلاب المحمية (اسم المستخدم يحتوي على كلمة المرور والصفحة الموجه إليها)
+    const STUDENT_DATA = {
+      "sypa1356": { pass: "vX9#mK2q", page: "st_K8mR4pX2a.html" },
+      "sypa2481": { pass: "bL7$tN4w", page: "st_Q7vN9tLm5.html" },
+      "sypa9072": { pass: "zP3&rW8x", page: "st_X3pW8rKa1.html" },
+      "sypa5148": { pass: "fM6@qZ2t", page: "st_B6mT2qZn4.html" },
+      "sypa3765": { pass: "hC9*vR3x", page: "st_L9xC7vRp3.html" },
+      "sypa6824": { pass: "jK4%nT6m", page: "st_D4kM8nTy6.html" },
+      "sypa1947": { pass: "wQ5#zH9x", page: "st_P2wQ5zHx9.html" },
+      "sypa8235": { pass: "mL1$kV7x", page: "st_R8mL1kVx7.html" },
+      "sypa4519": { pass: "tB3&qW2p", page: "st_N5tB3qWp2.html" },
+      "sypa7603": { pass: "vD4@mK8z", page: "st_Y7vD4mKz8.html" },
+      "sypa2876": { pass: "xP9*nR1t", page: "st_H3xP9nRt1.html" },
+      "sypa9341": { pass: "qW2%mL5y", page: "st_C8qW2mLy5.html" },
+      "sypa5182": { pass: "nK7#vX3p", page: "st_T4nK7vXp3.html" },
+      "sypa6417": { pass: "rB5$qZ6w", page: "st_M9rB5qZw6.html" },
+      "sypa3058": { pass: "xL8&nT4y", page: "st_V2xL8nTy4.html" },
+      "sypa8794": { pass: "mP3@qR9x", page: "st_F7mP3qRx9.html" },
+      "sypa1623": { pass: "vN1*tL8m", page: "st_K5vN1tLm8.html" },
+      "sypa7485": { pass: "pW4%rK2a", page: "st_X9pW4rKa2.html" },
+      "sypa2931": { pass: "mT7#qZ5n", page: "st_B3mT7qZn5.html" },
+      "sypa8560": { pass: "xC2$vR8p", page: "st_L6xC2vRp8.html" },
+      "sypa4702": { pass: "kM5&nT1y", page: "st_D9kM5nTy1.html" },
+      "sypa7196": { pass: "wQ8@zH3x", page: "st_P4wQ8zHx3.html" },
+      "sypa3815": { pass: "mL6*kV7x", page: "st_R1mL6kVx7.html" },
+      "sypa6248": { pass: "tB2%qW4p", page: "st_N8tB2qWp4.html" },
+      "sypa1459": { pass: "vD9#mK6z", page: "st_Y5vD9mKz6.html" },
+      "sypa9026": { pass: "xP7$nR8t", page: "st_H2xP7nRt8.html" },
+      "sypa5371": { pass: "qW1&mL9y", page: "st_C4qW1mLy9.html" },
+      "sypa2684": { pass: "nK3@vX5p", page: "st_T8nK3vXp5.html" },
+      "sypa7930": { pass: "rB7*qZ2w", page: "st_M1rB7qZw2.html" },
+      "sypa4107": { pass: "xL4%nT6y", page: "st_V9xL4nTy6.html" },
+      "sypa6819": { pass: "mP8#qR1x", page: "st_F3mP8qRx1.html" },
+      "sypa3542": { pass: "vN2$tL5m", page: "st_K7vN2tLm5.html" },
+      "sypa8267": { pass: "pW9&rK3a", page: "st_X4pW9rKa3.html" },
+      "sypa1954": { pass: "mT1@qZ7n", page: "st_B8mT1qZn7.html" },
+      "sypa7428": { pass: "xC5*vR9p", page: "st_L2xC5vRp9.html" }
+    };
+
+    const loader = document.getElementById('loaderScreen');
+    const loginView = document.getElementById('loginView');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+
+    // شاشة التحميل الابتدائية
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        setTimeout(() => {
+          loader.style.display = 'none';
+          loginView.classList.remove('hidden');
+        }, 400);
+      }, 2500);
+    });
+
+    // معالجة تسجيل الدخول للطلاب
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      // التحقق من صحة اسم المستخدم وكلمة المرور المشفرة داخل الكود لكل طالب
+      if (STUDENT_DATA.hasOwnProperty(username) && STUDENT_DATA[username].pass === password) {
+        loginError.textContent = '';
+        window.location.href = STUDENT_DATA[username].page;
+      } else {
+        loginError.textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
