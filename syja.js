@@ -1,62 +1,62 @@
-// syja.js - النظام الكامل
+// syja.js - النظام الكامل - ملف واحد لكل الطلاب
 const studentData = {
-    "st_k8mr4px2a": { ar: "أبو اليزيد", en: "abo el yazed", ru: "абу эль язид", ms: "abo el yazed" },
-    "st_q7vn9tlm5": { ar: "أحمد عادل", en: "ahmed adel", ru: "ахмед адель", ms: "ahmed adel" },
-    "st_x3pw8rka1": { ar: "أحمد فولة", en: "ahmed foula", ru: "ахмед фула", ms: "ahmed foula" },
-    "st_b6mt2qzn4": { ar: "علي", en: "ali", ru: "али", ms: "ali" },
-    "st_l9xc7vrp3": { ar: "أيمن", en: "ayman", ru: "айман", ms: "ayman" },
-    "st_d4km8nty6": { ar: "حكمت", en: "hekmat", ru: "хекмат", ms: "hekmat" },
-    "st_p2wq5zhx9": { ar: "حسين", en: "huseen", ru: "хусейн", ms: "huseen" },
-    "st_r8ml1kvx7": { ar: "محمود محمد", en: "mahmoud mohamed", ru: "махмуд мухаммед", ms: "mahmoud mohamed" },
-    "st_n5tb3qwp2": { ar: "محمد زكي", en: "mohamed zaki", ru: "мухаммед заки", ms: "mohamed zaki" },
-    "st_y7vd4mkz8": { ar: "محمد رجب", en: "mohamed rajab", ru: "мухаммед раджаб", ms: "mohamed rajab" },
-    "st_h3xp9nrt1": { ar: "رسول", en: "rasol", ru: "расуль", ms: "rasol" },
-    "st_c8qw2mly5": { ar: "رمضان", en: "romadan", ru: "ромадан", ms: "romadan" },
-    "st_t4nk7vxp3": { ar: "سيف الله", en: "seif allah", ru: "сейф аллах", ms: "seif allah" },
-    "st_m9rb5qzw6": { ar: "سرور بيك", en: "surur beack", ru: "сурур бек", ms: "surur beack" },
-    "st_v2xl8nty4": { ar: "شرف الدين", en: "sharaf el dien", ru: "шараф эль дин", ms: "sharaf el dien" },
-    "st_f7mp3qrx9": { ar: "وجيه الله", en: "wageh allah", ru: "вагих аллах", ms: "wageh allah" },
-    "st_k5vn1tlm8": { ar: "ولي الله", en: "wally allah", ru: "вали аллах", ms: "wally allah" },
-    "st_x9pw4rka2": { ar: "أبو بكر نور", en: "abu bakr nour", ru: "абу бакр нур", ms: "abu bakr nour" },
-    "st_b3mt7qzn5": { ar: "الشيخ عبدالله", en: "sheikh abdullah", ru: "шейх абдулла", ms: "sheikh abdullah" },
-    "st_l6xc2vrp8": { ar: "شيخ آدم", en: "sheikh adam", ru: "шейх адам", ms: "sheikh adam" },
-    "st_d9km5nty1": { ar: "شيخ سعيد", en: "sheikh saeed", ru: "шейх саид", ms: "sheikh saeed" },
-    "st_p4wq8zhx3": { ar: "عبدالله داوود", en: "abdullah dawood", ru: "абдулла дауд", ms: "abdullah dawood" },
-    "st_r1ml6kvx7": { ar: "محمد رسول", en: "mohamed rasol", ru: "мухаммед расуль", ms: "mohamed rasol" },
-    "st_n8tb2qwp4": { ar: "محمد سيد أحمد", en: "mohamed sayed ahmed", ru: "мухаммед саид ахмед", ms: "mohamed sayed ahmed" },
-    "st_y5vd9mkz6": { ar: "محمد عثمان", en: "mohamed osman", ru: "мухаммед осман", ms: "mohamed osman" },
-    "st_h2xp7nrt8": { ar: "محمد زاهد", en: "mohamed zahed", ru: "мухаммед захид", ms: "mohamed zahed" },
-    "st_c4qw1mly9": { ar: "محمد عبدالسلام", en: "mohamed abdelsalam", ru: "мухаммед абдельсалам", ms: "mohamed abdelsalam" }
+    "st_k8mr4px2a": { ar: "أبو اليزيد", en: "Abo El Yazed", ru: "Абу Эль Язид", ms: "Abo El Yazed" },
+    "st_q7vn9tlm5": { ar: "أحمد عادل", en: "Ahmed Adel", ru: "Ахмед Адель", ms: "Ahmed Adel" },
+    "st_x3pw8rka1": { ar: "أحمد فولة", en: "Ahmed Foula", ru: "Ахмед Фула", ms: "Ahmed Foula" },
+    "st_b6mt2qzn4": { ar: "علي", en: "Ali", ru: "Али", ms: "Ali" },
+    "st_l9xc7vrp3": { ar: "أيمن", en: "Ayman", ru: "Айман", ms: "Ayman" },
+    "st_d4km8nty6": { ar: "حكمت", en: "Hekmat", ru: "Хекмат", ms: "Hekmat" },
+    "st_p2wq5zhx9": { ar: "حسين", en: "Huseen", ru: "Хусейн", ms: "Huseen" },
+    "st_r8ml1kvx7": { ar: "محمود محمد", en: "Mahmoud Mohamed", ru: "Махмуд Мухаммед", ms: "Mahmoud Mohamed" },
+    "st_n5tb3qwp2": { ar: "محمد زكي", en: "Mohamed Zaki", ru: "Мухаммед Заки", ms: "Mohamed Zaki" },
+    "st_y7vd4mkz8": { ar: "محمد رجب", en: "Mohamed Rajab", ru: "Мухаммед Раджаб", ms: "Mohamed Rajab" },
+    "st_h3xp9nrt1": { ar: "رسول", en: "Rasol", ru: "Расуль", ms: "Rasol" },
+    "st_c8qw2mly5": { ar: "رمضان", en: "Romadan", ru: "Ромадан", ms: "Romadan" },
+    "st_t4nk7vxp3": { ar: "سيف الله", en: "Seif Allah", ru: "Сейф Аллах", ms: "Seif Allah" },
+    "st_m9rb5qzw6": { ar: "سرور بيك", en: "Surur Beack", ru: "Сурур Бек", ms: "Surur Beack" },
+    "st_v2xl8nty4": { ar: "شرف الدين", en: "Sharaf El Dien", ru: "Шараф эль Дин", ms: "Sharaf El Dien" },
+    "st_f7mp3qrx9": { ar: "وجيه الله", en: "Wageh Allah", ru: "Вагих Аллах", ms: "Wageh Allah" },
+    "st_k5vn1tlm8": { ar: "ولي الله", en: "Wally Allah", ru: "Вали Аллах", ms: "Wally Allah" },
+    "st_x9pw4rka2": { ar: "أبو بكر نور", en: "Abu Bakr Nour", ru: "Абу Бакр Нур", ms: "Abu Bakr Nour" },
+    "st_b3mt7qzn5": { ar: "الشيخ عبدالله", en: "Sheikh Abdullah", ru: "Шейх Абдулла", ms: "Sheikh Abdullah" },
+    "st_l6xc2vrp8": { ar: "شيخ آدم", en: "Sheikh Adam", ru: "Шейх Адам", ms: "Sheikh Adam" },
+    "st_d9km5nty1": { ar: "شيخ سعيد", en: "Sheikh Saeed", ru: "Шейх Саид", ms: "Sheikh Saeed" },
+    "st_p4wq8zhx3": { ar: "عبدالله داوود", en: "Abdullah Dawood", ru: "Абдулла Дауд", ms: "Abdullah Dawood" },
+    "st_r1ml6kvx7": { ar: "محمد رسول", en: "Mohamed Rasol", ru: "Мухаммед Расуль", ms: "Mohamed Rasol" },
+    "st_n8tb2qwp4": { ar: "محمد سيد أحمد", en: "Mohamed Sayed Ahmed", ru: "Мухаммед Саид Ахмед", ms: "Mohamed Sayed Ahmed" },
+    "st_y5vd9mkz6": { ar: "محمد عثمان", en: "Mohamed Osman", ru: "Мухаммед Осман", ms: "Mohamed Osman" },
+    "st_h2xp7nrt8": { ar: "محمد زاهد", en: "Mohamed Zahed", ru: "Мухаммед Захид", ms: "Mohamed Zahed" },
+    "st_c4qw1mly9": { ar: "محمد عبدالسلام", en: "Mohamed Abdelsalam", ru: "Мухаммед Абдельсалам", ms: "Mohamed Abdelsalam" }
 };
 
 const studentCredentials = {
-    "st_k8mr4px2a": { user: "sypa1356", pass: "vx9#mk2q" },
-    "st_q7vn9tlm5": { user: "sypa2481", pass: "bl7$tn4w" },
-    "st_x3pw8rka1": { user: "sypa9072", pass: "zp3&rw8x" },
-    "st_b6mt2qzn4": { user: "sypa5148", pass: "fm6@qz2t" },
-    "st_l9xc7vrp3": { user: "sypa3765", pass: "hc9*vr3x" },
-    "st_d4km8nty6": { user: "sypa6824", pass: "jk4%nt6m" },
-    "st_p2wq5zhx9": { user: "sypa1947", pass: "wq5#zh9x" },
-    "st_r8ml1kvx7": { user: "sypa8235", pass: "ml1$kv7x" },
-    "st_n5tb3qwp2": { user: "sypa4519", pass: "tb3&qw2p" },
-    "st_y7vd4mkz8": { user: "sypa7603", pass: "vd4@mk8z" },
-    "st_h3xp9nrt1": { user: "sypa2876", pass: "xp9*nr1t" },
-    "st_c8qw2mly5": { user: "sypa9341", pass: "qw2%ml5y" },
-    "st_t4nk7vxp3": { user: "sypa5182", pass: "nk7#vx3p" },
-    "st_m9rb5qzw6": { user: "sypa6417", pass: "rb5$qz6w" },
-    "st_v2xl8nty4": { user: "sypa3058", pass: "xl8&nt4y" },
-    "st_f7mp3qrx9": { user: "sypa8794", pass: "mp3@qr9x" },
-    "st_k5vn1tlm8": { user: "sypa1623", pass: "vn1*tl8m" },
-    "st_x9pw4rka2": { user: "sypa7485", pass: "pw4%rk2a" },
-    "st_b3mt7qzn5": { user: "sypa2931", pass: "mt7#qz5n" },
-    "st_l6xc2vrp8": { user: "sypa8560", pass: "xc2$vr8p" },
-    "st_d9km5nty1": { user: "sypa4702", pass: "km5&nt1y" },
-    "st_p4wq8zhx3": { user: "sypa7196", pass: "wq8@zh3x" },
-    "st_r1ml6kvx7": { user: "sypa3815", pass: "ml6*kv7x" },
-    "st_n8tb2qwp4": { user: "sypa6248", pass: "tb2%qw4p" },
-    "st_y5vd9mkz6": { user: "sypa1459", pass: "vd9#mk6z" },
-    "st_h2xp7nrt8": { user: "sypa9026", pass: "xp7$nr8t" },
-    "st_c4qw1mly9": { user: "sypa5371", pass: "qw1&ml9y" }
+    "st_k8mr4px2a": { user: "sypa1356", pass: "vX9#mK2q" },
+    "st_q7vn9tlm5": { user: "sypa2481", pass: "bL7$tN4w" },
+    "st_x3pw8rka1": { user: "sypa9072", pass: "zP3&rW8x" },
+    "st_b6mt2qzn4": { user: "sypa5148", pass: "fM6@qZ2t" },
+    "st_l9xc7vrp3": { user: "sypa3765", pass: "hC9*vR3x" },
+    "st_d4km8nty6": { user: "sypa6824", pass: "jK4%nT6m" },
+    "st_p2wq5zhx9": { user: "sypa1947", pass: "wQ5#zH9x" },
+    "st_r8ml1kvx7": { user: "sypa8235", pass: "mL1$kV7x" },
+    "st_n5tb3qwp2": { user: "sypa4519", pass: "tB3&qW2p" },
+    "st_y7vd4mkz8": { user: "sypa7603", pass: "vD4@mK8z" },
+    "st_h3xp9nrt1": { user: "sypa2876", pass: "xP9*nR1t" },
+    "st_c8qw2mly5": { user: "sypa9341", pass: "qW2%mL5y" },
+    "st_t4nk7vxp3": { user: "sypa5182", pass: "nK7#vX3p" },
+    "st_m9rb5qzw6": { user: "sypa6417", pass: "rB5$qZ6w" },
+    "st_v2xl8nty4": { user: "sypa3058", pass: "xL8&nT4y" },
+    "st_f7mp3qrx9": { user: "sypa8794", pass: "mP3@qR9x" },
+    "st_k5vn1tlm8": { user: "sypa1623", pass: "vN1*tL8m" },
+    "st_x9pw4rka2": { user: "sypa7485", pass: "pW4%rK2a" },
+    "st_b3mt7qzn5": { user: "sypa2931", pass: "mT7#qZ5n" },
+    "st_l6xc2vrp8": { user: "sypa8560", pass: "xC2$vR8p" },
+    "st_d9km5nty1": { user: "sypa4702", pass: "kM5&nT1y" },
+    "st_p4wq8zhx3": { user: "sypa7196", pass: "wQ8@zH3x" },
+    "st_r1ml6kvx7": { user: "sypa3815", pass: "mL6*kV7x" },
+    "st_n8tb2qwp4": { user: "sypa6248", pass: "tB2%qW4p" },
+    "st_y5vd9mkz6": { user: "sypa1459", pass: "vD9#mK6z" },
+    "st_h2xp7nrt8": { user: "sypa9026", pass: "xP7$nR8t" },
+    "st_c4qw1mly9": { user: "sypa5371", pass: "qW1&mL9y" }
 };
 
 const translations = {
@@ -73,16 +73,22 @@ const sectionDescriptions = {
     ms: { notes: 'Nota penting', lectures: 'Tonton kuliah', streams: 'Siaran langsung', fees: 'Yuran pengajian', books: 'Perpustakaan', exams: 'Peperiksaan', results: 'Keputusan' }
 };
 
+// ===== قراءة ID الطالب من الرابط =====
+function getStudentIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id') || '';
+}
+
 function getStudentName(lang) {
-    const fileName = window.location.pathname.split('/').pop().replace('.html', '').toLowerCase();
-    const student = studentData[fileName];
+    const studentId = getStudentIdFromUrl();
+    const student = studentData[studentId];
     if (student && student[lang]) return student[lang];
-    return studentData[fileName] ? studentData[fileName]['ar'] : "طالب";
+    return studentData[studentId] ? studentData[studentId]['ar'] : "طالب";
 }
 
 function getStudentCredentials() {
-    const fileName = window.location.pathname.split('/').pop().replace('.html', '').toLowerCase();
-    return studentCredentials[fileName] || { user: '-', pass: '********' };
+    const studentId = getStudentIdFromUrl();
+    return studentCredentials[studentId] || { user: '-', pass: '********' };
 }
 
 let currentLang = localStorage.getItem('lang') || 'ar';
@@ -203,7 +209,9 @@ function performSearch() {
     if (!filtered.length) { resultsContainer.innerHTML = ''; resultsContainer.classList.remove('has-results'); noResults.classList.add('show'); return; }
     noResults.classList.remove('show');
     let html = '';
-    filtered.forEach(item => { html += `<div class="search-result-item" onclick="closeSearch();window.location.href='${item.url}'"><div class="result-icon"><svg viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></div><div class="result-info"><span class="result-title">${item.title[lang]}</span></div></div>`; });
+    const studentId = getStudentIdFromUrl();
+    const idParam = studentId ? '?id=' + studentId : '';
+    filtered.forEach(item => { html += `<div class="search-result-item" onclick="closeSearch();window.location.href='${item.url}${idParam}'"><div class="result-icon"><svg viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></div><div class="result-info"><span class="result-title">${item.title[lang]}</span></div></div>`; });
     resultsContainer.innerHTML = html; resultsContainer.classList.add('has-results');
 }
 
@@ -234,7 +242,27 @@ function updateBottomNavTexts() {
     });
 }
 
+// ===== توجيه تلقائي مع id =====
+(function patchAllLinks() {
+    const studentId = getStudentIdFromUrl();
+    if (!studentId) return;
+    
+    // تعديل كل الروابط في الصفحة عشان تحتفظ بالـ id
+    document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.endsWith('.html') && !href.includes('?id=') && href !== 'syff.html') {
+            link.setAttribute('href', href + '?id=' + studentId);
+        }
+    });
+})();
+
 window.addEventListener('DOMContentLoaded', () => {
+    const studentId = getStudentIdFromUrl();
+    if (!studentId) {
+        window.location.href = 'syff.html';
+        return;
+    }
+    
     document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
     currentLang = localStorage.getItem('lang') || 'ar';
     document.documentElement.setAttribute('lang', currentLang);
