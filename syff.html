@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>مركز سيبويه · دخول الطلاب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; font-weight: 700; }
+        body { background: #FBF9F7; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .login-view { max-width: 440px; width: 100%; background: white; border-radius: 24px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); padding: 40px 32px; }
+        .login-header { text-align: center; margin-bottom: 36px; }
+        .login-header h2 { font-size: 28px; font-weight: 900; color: #1E4D5C; }
+        .login-header p { color: #5a6b7a; margin-top: 6px; font-size: 14px; }
+        .input-group { margin-bottom: 22px; }
+        .input-group label { display: block; font-weight: 700; font-size: 0.9rem; color: #1e293b; margin-bottom: 6px; }
+        .input-group input { width: 100%; padding: 14px 18px; border: 2px solid #e0e7ef; border-radius: 16px; font-size: 1rem; background: #fafcff; transition: 0.2s; }
+        .input-group input:focus { outline: none; border-color: #C9A84C; box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1); }
+        .login-btn { width: 100%; padding: 14px; background: #1E4D5C; color: white; border: none; border-radius: 16px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.2s; }
+        .login-btn:hover { background: #1a3d4a; }
+        .error-msg { color: #d32f2f; text-align: center; margin-top: 14px; font-size: 0.9rem; min-height: 20px; }
+        .loader-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1E4D5C; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s; }
+        .loader-hidden { opacity: 0; pointer-events: none; }
+        .spinner { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.15); border-top: 5px solid #C9A84C; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loader-text { margin-top: 20px; color: #C9A84C; font-weight: 700; letter-spacing: 2px; font-size: 16px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div class="loader-screen" id="loaderScreen">
+    <div class="spinner"></div>
+    <div class="loader-text">مركز سيبويه</div>
+</div>
+
+<div id="loginView" class="login-view hidden">
+    <div class="login-header">
+        <h2>مرحباً بك</h2>
+        <p>مركز سيبويه · بوابة الطلاب</p>
+    </div>
+    <form id="loginForm">
+        <div class="input-group">
+            <label>اسم المستخدم</label>
+            <input type="text" id="loginUsername" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+            <label>كلمة المرور</label>
+            <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit" class="login-btn">تسجيل الدخول</button>
+        <div id="loginError" class="error-msg"></div>
+    </form>
+</div>
+
+<script>
+    const students = [
+        { user: "sypa1356", pass: "vX9#mK2q", id: "st_k8mr4px2a" },
+        { user: "sypa2481", pass: "bL7$tN4w", id: "st_q7vn9tlm5" },
+        { user: "sypa9072", pass: "zP3&rW8x", id: "st_x3pw8rka1" },
+        { user: "sypa5148", pass: "fM6@qZ2t", id: "st_b6mt2qzn4" },
+        { user: "sypa3765", pass: "hC9*vR3x", id: "st_l9xc7vrp3" },
+        { user: "sypa6824", pass: "jK4%nT6m", id: "st_d4km8nty6" },
+        { user: "sypa1947", pass: "wQ5#zH9x", id: "st_p2wq5zhx9" },
+        { user: "sypa8235", pass: "mL1$kV7x", id: "st_r8ml1kvx7" },
+        { user: "sypa4519", pass: "tB3&qW2p", id: "st_n5tb3qwp2" },
+        { user: "sypa7603", pass: "vD4@mK8z", id: "st_y7vd4mkz8" },
+        { user: "sypa2876", pass: "xP9*nR1t", id: "st_h3xp9nrt1" },
+        { user: "sypa9341", pass: "qW2%mL5y", id: "st_c8qw2mly5" },
+        { user: "sypa5182", pass: "nK7#vX3p", id: "st_t4nk7vxp3" },
+        { user: "sypa6417", pass: "rB5$qZ6w", id: "st_m9rb5qzw6" },
+        { user: "sypa3058", pass: "xL8&nT4y", id: "st_v2xl8nty4" },
+        { user: "sypa8794", pass: "mP3@qR9x", id: "st_f7mp3qrx9" },
+        { user: "sypa1623", pass: "vN1*tL8m", id: "st_k5vn1tlm8" },
+        { user: "sypa7485", pass: "pW4%rK2a", id: "st_x9pw4rka2" },
+        { user: "sypa2931", pass: "mT7#qZ5n", id: "st_b3mt7qzn5" },
+        { user: "sypa8560", pass: "xC2$vR8p", id: "st_l6xc2vrp8" },
+        { user: "sypa4702", pass: "kM5&nT1y", id: "st_d9km5nty1" },
+        { user: "sypa7196", pass: "wQ8@zH3x", id: "st_p4wq8zhx3" },
+        { user: "sypa3815", pass: "mL6*kV7x", id: "st_r1ml6kvx7" },
+        { user: "sypa6248", pass: "tB2%qW4p", id: "st_n8tb2qwp4" },
+        { user: "sypa1459", pass: "vD9#mK6z", id: "st_y5vd9mkz6" },
+        { user: "sypa9026", pass: "xP7$nR8t", id: "st_h2xp7nrt8" },
+        { user: "sypa5371", pass: "qW1&mL9y", id: "st_c4qw1mly9" }
+    ];
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var loadeفr = document.getElementById('loaderScreen');
+            loader.classList.add('loader-hidden');
+            setTimeout(function() {
+                loader.style.display = 'none';
+                document.getElementById('loginView').classList.remove('hidden');
+            }, 400);
+        }, 2000);
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var username = document.getElementById('loginUsername').value.trim();
+        var password = document.getElementById('loginPassword').value;
+        var error = document.getElementById('loginError');
+        var found = false;
+
+        for (var i = 0; i < students.length; i++) {
+            if (students[i].user === username && students[i].pass === password) {
+                found = true;
+                error.textContent = '';
+                window.location.href = 'main.html?id=' + students[i].id;
+                break;
+            }
+        }
+
+        if (!found) {
+            error.textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة';
+        }
+    });
+</script>
+</body>
+</html>
